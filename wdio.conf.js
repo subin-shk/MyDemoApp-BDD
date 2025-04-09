@@ -143,6 +143,7 @@ exports.config = {
 
       path.resolve("./features/step-definitions/login.steps.js"),
       path.resolve("./features/step-definitions/cart.steps.js"),
+      path.resolve("./features/step-definitions/checkout.steps.js"),
     ],
     // <boolean> show full backtrace for errors
     backtrace: false,
