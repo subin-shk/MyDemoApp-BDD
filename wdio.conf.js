@@ -1,3 +1,5 @@
+const path = require("path");
+
 exports.config = {
   //
   // ====================
@@ -136,7 +138,12 @@ exports.config = {
   // If you are using Cucumber you need to specify the location of your step definitions.
   cucumberOpts: {
     // <string[]> (file/dir) require files before executing features
-    require: ["./features/step-definitions/login.steps.js"],
+    require: [
+      // path.resolve("./features/step-definitions/steps.js"),
+
+      path.resolve("./features/step-definitions/login.steps.js"),
+      path.resolve("./features/step-definitions/cart.steps.js"),
+    ],
     // <boolean> show full backtrace for errors
     backtrace: false,
     // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
