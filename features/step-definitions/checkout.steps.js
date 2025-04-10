@@ -4,6 +4,7 @@ const LoginPage = require("../pageobjects/login.page");
 const Catalog = require("../pageobjects/catalog.po");
 const Navigation = require("../pageobjects/navigation.po");
 const Checkout = require("../pageobjects/checkout.po");
+const Payment = require("../pageobjects/payment.po");
 const testData = require("../../fixtures/loginFixtures.json");
 const checkoutData = require("../../fixtures/checkoutFixtures.json");
 
@@ -77,6 +78,7 @@ Given("I am on checkout page", async () => {
 });
 
 When("I enter the checkout details", async () => {
+  await browser.pause(5000);
   await Checkout.fullName.setValue(checkoutData.checkoutDetails.fullName);
   await Checkout.addressLine1.setValue(
     checkoutData.checkoutDetails.addressLine1
@@ -129,6 +131,7 @@ When("I click on the Payment button", async () => {
     }
 
     await element.click();
+    await browser.pause(10000);
   }
 
   const paymentButton = await Checkout.toPayment;
@@ -136,6 +139,7 @@ When("I click on the Payment button", async () => {
 });
 
 Then("I should be redirected to the payment page", async () => {
+  await Payment.paymentMethod.waitForExist({ timeout: 10000 });
   const paymentRedirect = await Payment.paymentMethod.getText();
   expect(paymentRedirect).toContain("Enter a payment method");
 });

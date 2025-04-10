@@ -139,11 +139,12 @@ exports.config = {
   cucumberOpts: {
     // <string[]> (file/dir) require files before executing features
     require: [
-      // path.resolve("./features/step-definitions/steps.js"),
+      // path.resolve("features/step-definitions/*.steps.js"),
 
       path.resolve("./features/step-definitions/login.steps.js"),
       path.resolve("./features/step-definitions/cart.steps.js"),
       path.resolve("./features/step-definitions/checkout.steps.js"),
+      path.resolve("./features/step-definitions/payment.steps.js"),
     ],
     // <boolean> show full backtrace for errors
     backtrace: false,
